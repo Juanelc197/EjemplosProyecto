@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_vista = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.Buscar = new System.Windows.Forms.Label();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.txt_tel = new System.Windows.Forms.TextBox();
@@ -39,16 +37,8 @@
             this.lbl_tele = new System.Windows.Forms.Label();
             this.lbl_direc = new System.Windows.Forms.Label();
             this.lbl_nom = new System.Windows.Forms.Label();
+            this.comInfo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // btn_buscar
-            // 
-            this.btn_buscar.Location = new System.Drawing.Point(146, 25);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
-            this.btn_buscar.TabIndex = 21;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
             // 
             // btn_vista
             // 
@@ -58,14 +48,7 @@
             this.btn_vista.TabIndex = 20;
             this.btn_vista.Text = "Ver datos";
             this.btn_vista.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(128, 21);
-            this.comboBox1.TabIndex = 19;
+            this.btn_vista.Click += new System.EventHandler(this.btn_vista_Click);
             // 
             // Buscar
             // 
@@ -141,14 +124,22 @@
             this.lbl_nom.TabIndex = 11;
             this.lbl_nom.Text = "Nombre:";
             // 
+            // comInfo
+            // 
+            this.comInfo.FormattingEnabled = true;
+            this.comInfo.Location = new System.Drawing.Point(12, 25);
+            this.comInfo.Name = "comInfo";
+            this.comInfo.Size = new System.Drawing.Size(121, 21);
+            this.comInfo.TabIndex = 21;
+            this.comInfo.SelectedIndexChanged += new System.EventHandler(this.comInfo_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 227);
-            this.Controls.Add(this.btn_buscar);
+            this.Controls.Add(this.comInfo);
             this.Controls.Add(this.btn_vista);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Buscar);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.txt_tel);
@@ -159,16 +150,14 @@
             this.Controls.Add(this.lbl_nom);
             this.Name = "Form1";
             this.Text = "Cliente";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.Button btn_vista;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label Buscar;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.TextBox txt_tel;
@@ -177,6 +166,7 @@
         private System.Windows.Forms.Label lbl_tele;
         private System.Windows.Forms.Label lbl_direc;
         private System.Windows.Forms.Label lbl_nom;
+        private System.Windows.Forms.ComboBox comInfo;
     }
 }
 
