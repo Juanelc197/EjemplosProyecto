@@ -16,9 +16,9 @@ namespace Cliente
 
         //OleDbConnection cnn;
         //OleDbCommand com;
-        OleDbDataReader dr;
-        OleDbCommand com = new OleDbCommand();
-        OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
+        //OleDbDataReader dr = new OleDbDataReader();
+        //OleDbCommand com = new OleDbCommand();
+        //OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Juanelc197\\Desktop\\EjemProyec.accdb");
 
         public Form1()
         {
@@ -34,6 +34,8 @@ namespace Cliente
             //cnn = new OleDbConnection(connetionString);
 
             //com.CommandText = "insert into Cliente (Nombre, Direccion, Telefono) VALUES ('" + txt_nom.Text + "','" + txt_direc.Text + "','" + txt_tel.Text +
+            OleDbCommand com = new OleDbCommand();
+            OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Juanelc197\\Desktop\\EjemProyec.accdb");
 
             com.CommandText = "insert into Cliente (Nombre, Direccion, Telefono) VALUES ('" + txt_nom.Text + "','" + txt_direc.Text + "','" + txt_tel.Text + "')";
             com.Connection = cnn;
@@ -73,6 +75,8 @@ namespace Cliente
         {
             try
             {
+                OleDbCommand com = new OleDbCommand();
+                OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Juanelc197\\Desktop\\EjemProyec.accdb");
                 com.Connection = cnn;
                 cnn.Open();
                 string query = "select Id from Cliente";
@@ -96,6 +100,8 @@ namespace Cliente
         {
             try
             {
+                OleDbCommand com = new OleDbCommand();
+                OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Juanelc197\\Desktop\\EjemProyec.accdb");
                 com.Connection = cnn;
                 cnn.Open();
 
@@ -114,6 +120,18 @@ namespace Cliente
             {
                 MessageBox.Show("No se encontro" + ex.ToString());
             }
+        }
+
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+            OleDbCommand com = new OleDbCommand();
+            OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Juanelc197\\Desktop\\EjemProyec.accdb");
+
+            com.CommandText = "update Cliente set (Nombre, Direccion, Telefono) VALUES ('" + txt_nom.Text + "','" + txt_direc.Text + "','" + txt_tel.Text + "')";
+            com.Connection = cnn;
+            cnn.Open();
+            com.ExecuteNonQuery();
+            MessageBox.Show("Conexion exitosa");
         }
     }
 }
