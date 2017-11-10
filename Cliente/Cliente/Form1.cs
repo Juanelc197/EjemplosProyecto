@@ -35,7 +35,7 @@ namespace Cliente
 
             //com.CommandText = "insert into Cliente (Nombre, Direccion, Telefono) VALUES ('" + txt_nom.Text + "','" + txt_direc.Text + "','" + txt_tel.Text +
             OleDbCommand com = new OleDbCommand();
-            OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Juanelc197\\Desktop\\EjemProyec.accdb");
+            OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
 
             com.CommandText = "insert into Cliente (Nombre, Direccion, Telefono) VALUES ('" + txt_nom.Text + "','" + txt_direc.Text + "','" + txt_tel.Text + "')";
             com.Connection = cnn;
@@ -53,30 +53,14 @@ namespace Cliente
             frm.Show();
         }
 
-        private void btn_buscar_Click(object sender, EventArgs e)
-        {
-            /* string cadena = "Select * from Cliente where Nombre='" + txt_busqueda.Text + "' ";
-
-            OleDbCommand comando = new OleDbCommand(cadena, cnn);
-            cnn.Open();
-
-            OleDbDataReader leer = comando.ExecuteReader();
-            if (leer.Read() ==true)
-            {
-                MessageBox.Show("El registro se a encontrado");
-            } else
-            {
-                MessageBox.Show("No se encontro");
-            }
-            cnn.Close(); */
-        }
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 OleDbCommand com = new OleDbCommand();
-                OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Juanelc197\\Desktop\\EjemProyec.accdb");
+                OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
                 com.Connection = cnn;
                 cnn.Open();
                 string query = "select Id from Cliente";
@@ -91,17 +75,17 @@ namespace Cliente
             } catch (Exception ex)
             {
                 MessageBox.Show("No se lleno" + ex.ToString());
-            }
+            } */
             
 
         }
 
         private void comInfo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 OleDbCommand com = new OleDbCommand();
-                OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Juanelc197\\Desktop\\EjemProyec.accdb");
+                OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
                 com.Connection = cnn;
                 cnn.Open();
 
@@ -119,19 +103,50 @@ namespace Cliente
             } catch (Exception ex)
             {
                 MessageBox.Show("No se encontro" + ex.ToString());
-            }
+            } */
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
             OleDbCommand com = new OleDbCommand();
-            OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Juanelc197\\Desktop\\EjemProyec.accdb");
+            OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
 
             com.CommandText = "update Cliente set (Nombre, Direccion, Telefono) VALUES ('" + txt_nom.Text + "','" + txt_direc.Text + "','" + txt_tel.Text + "')";
             com.Connection = cnn;
             cnn.Open();
             com.ExecuteNonQuery();
             MessageBox.Show("Conexion exitosa");
+        }
+
+        private void btn_buscar_Click_1(object sender, EventArgs e)
+        {
+            string cadena = "Select * from Cliente where Nombre ='" + txt_busqueda.Text + "' ";
+
+            txt_busqueda.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+            OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
+            OleDbCommand comando = new OleDbCommand(cadena, cnn);
+            cnn.Open();
+
+            OleDbDataReader leer = comando.ExecuteReader();
+            if (leer.Read() == true)
+            {
+                //MessageBox.Show("El registro se a encontrado");
+
+                txt_nom.Text = leer["Nombre"].ToString();
+                txt_direc.Text = leer["Direccion"].ToString();
+                txt_tel.Text = leer["Telefono"].ToString();
+            
+            }
+            else
+            {
+                //MessageBox.Show("No se encontro");
+
+                txt_nom.Text = "";
+                txt_direc.Text = "";
+                txt_tel.Text = "";
+            }
+            cnn.Close();
         }
     }
 }

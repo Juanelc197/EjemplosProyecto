@@ -27,7 +27,7 @@ namespace Cliente
         {
             try
             {
-                OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Juanelc197\\Desktop\\EjemProyec.accdb");
+                OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
                 com.Connection = cnn;
                 cnn.Open();
                 string query = "select Nombre, Direccion, Telefono from Cliente";
