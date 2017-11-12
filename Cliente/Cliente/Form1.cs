@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cliente
@@ -14,11 +7,8 @@ namespace Cliente
     public partial class Form1 : Form
     {
 
-        //OleDbConnection cnn;
-        //OleDbCommand com;
-        //OleDbDataReader dr = new OleDbDataReader();
-        //OleDbCommand com = new OleDbCommand();
-        //OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Juanelc197\\Desktop\\EjemProyec.accdb");
+        
+        
 
         public Form1()
         {
@@ -57,72 +47,95 @@ namespace Cliente
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           /* try
-            {
-                OleDbCommand com = new OleDbCommand();
-                OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
-                com.Connection = cnn;
-                cnn.Open();
-                string query = "select Id from Cliente";
-                com.CommandText = query;
+            /* try
+             {
+                 OleDbCommand com = new OleDbCommand();
+                 OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
+                 com.Connection = cnn;
+                 cnn.Open();
+                 string query = "select Id from Cliente";
+                 com.CommandText = query;
 
-                OleDbDataReader leer = com.ExecuteReader();
-                while (leer.Read())
-                {
-                    comInfo.Items.Add(leer["Id"].ToString());
-                }
-                com.Clone();
-            } catch (Exception ex)
-            {
-                MessageBox.Show("No se lleno" + ex.ToString());
-            } */
-            
+                 OleDbDataReader leer = com.ExecuteReader();
+                 while (leer.Read())
+                 {
+                     comInfo.Items.Add(leer["Id"].ToString());
+                 }
+                 com.Clone();
+             } catch (Exception ex)
+             {
+                 MessageBox.Show("No se lleno" + ex.ToString());
+             } */
 
+            Conex c = new Conex();
+
+            c.ItemLLenar(comInfo);
         }
 
         private void comInfo_SelectedIndexChanged(object sender, EventArgs e)
         {
-           /* try
-            {
-                OleDbCommand com = new OleDbCommand();
-                OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
-                com.Connection = cnn;
-                cnn.Open();
 
-                string query = "select Nombre, Direccion, Telefono from Cliente where Id'" + comInfo.Text + "'";
-                com.CommandText = query;
+            
 
-                OleDbDataReader leer = com.ExecuteReader();
-                while (leer.Read())
-                {
-                    txt_nom.Text = leer["Nombre"].ToString();
-                    txt_direc.Text = leer["Direccion"].ToString();
-                    txt_tel.Text = leer["Telefono"].ToString();
-                }
-                com.Clone();
-            } catch (Exception ex)
-            {
-                MessageBox.Show("No se encontro" + ex.ToString());
-            } */
+
+            /* try
+             {
+                 OleDbCommand com = new OleDbCommand();
+                 OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
+                 com.Connection = cnn;
+                 cnn.Open();
+
+                 string query = "select Nombre, Direccion, Telefono from Cliente where Id'" + comInfo.Text + "'";
+                 com.CommandText = query;
+
+                 OleDbDataReader leer = com.ExecuteReader();
+                 while (leer.Read())
+                 {
+                     txt_nom.Text = leer["Nombre"].ToString();
+                     txt_direc.Text = leer["Direccion"].ToString();
+                     txt_tel.Text = leer["Telefono"].ToString();
+                 }
+                 com.Clone();
+             } catch (Exception ex)
+             {
+                 MessageBox.Show("No se encontro" + ex.ToString());
+             } */
+
+
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
-            OleDbCommand com = new OleDbCommand();
-            OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
 
-            com.CommandText = "update Cliente set (Nombre, Direccion, Telefono) VALUES ('" + txt_nom.Text + "','" + txt_direc.Text + "','" + txt_tel.Text + "')";
-            com.Connection = cnn;
-            cnn.Open();
-            com.ExecuteNonQuery();
-            MessageBox.Show("Conexion exitosa");
+            try
+            {
+                OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
+                con.Open();
+                OleDbCommand cmd = new OleDbCommand("update Cliente set Nombre= @nombre, Direccion= @direccion, Telefono= @telefono where Id = @id", con);
+
+                cmd.Parameters.AddWithValue("@nombre", txt_nom.Text);
+                cmd.Parameters.AddWithValue("@direccion", txt_direc.Text);
+                cmd.Parameters.AddWithValue("@telefono", txt_tel.Text);
+                //cmd.Parameters.AddWithValue("@id", txt_ID.Text);
+                cmd.Parameters.AddWithValue("@id", lbl_con.Text);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Completado");
+                con.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
+
+
         }
 
         private void btn_buscar_Click_1(object sender, EventArgs e)
         {
-            string cadena = "Select * from Cliente where Nombre ='" + txt_busqueda.Text + "' ";
+            string cadena = "Select * from Cliente where Nombre ='" + comInfo.Text + "' ";
 
-            txt_busqueda.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            //txt_busqueda.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
             OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
             OleDbCommand comando = new OleDbCommand(cadena, cnn);
@@ -136,6 +149,8 @@ namespace Cliente
                 txt_nom.Text = leer["Nombre"].ToString();
                 txt_direc.Text = leer["Direccion"].ToString();
                 txt_tel.Text = leer["Telefono"].ToString();
+                //txt_ID.Text = leer["Id"].ToString();
+                lbl_con.Text = leer["Id"].ToString();
             
             }
             else
@@ -148,5 +163,7 @@ namespace Cliente
             }
             cnn.Close();
         }
+
+        
     }
 }

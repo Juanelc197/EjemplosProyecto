@@ -39,13 +39,13 @@
             this.lbl_nom = new System.Windows.Forms.Label();
             this.comInfo = new System.Windows.Forms.ComboBox();
             this.btn_modificar = new System.Windows.Forms.Button();
-            this.txt_busqueda = new System.Windows.Forms.TextBox();
             this.btn_buscar = new System.Windows.Forms.Button();
+            this.lbl_con = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_vista
             // 
-            this.btn_vista.Location = new System.Drawing.Point(293, 186);
+            this.btn_vista.Location = new System.Drawing.Point(223, 250);
             this.btn_vista.Name = "btn_vista";
             this.btn_vista.Size = new System.Drawing.Size(67, 25);
             this.btn_vista.TabIndex = 20;
@@ -58,14 +58,14 @@
             this.Buscar.AutoSize = true;
             this.Buscar.Location = new System.Drawing.Point(9, 9);
             this.Buscar.Name = "Buscar";
-            this.Buscar.Size = new System.Drawing.Size(54, 13);
+            this.Buscar.Size = new System.Drawing.Size(58, 13);
             this.Buscar.TabIndex = 18;
-            this.Buscar.Text = "busqueda";
+            this.Buscar.Text = "Búsqueda:";
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(218, 186);
-            this.btn_guardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_guardar.Location = new System.Drawing.Point(11, 245);
+            this.btn_guardar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(56, 26);
             this.btn_guardar.TabIndex = 17;
@@ -75,24 +75,24 @@
             // 
             // txt_tel
             // 
-            this.txt_tel.Location = new System.Drawing.Point(64, 183);
-            this.txt_tel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_tel.Location = new System.Drawing.Point(11, 201);
+            this.txt_tel.Margin = new System.Windows.Forms.Padding(2);
             this.txt_tel.Name = "txt_tel";
-            this.txt_tel.Size = new System.Drawing.Size(114, 20);
+            this.txt_tel.Size = new System.Drawing.Size(119, 20);
             this.txt_tel.TabIndex = 16;
             // 
             // txt_direc
             // 
-            this.txt_direc.Location = new System.Drawing.Point(67, 135);
-            this.txt_direc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_direc.Location = new System.Drawing.Point(11, 153);
+            this.txt_direc.Margin = new System.Windows.Forms.Padding(2);
             this.txt_direc.Name = "txt_direc";
-            this.txt_direc.Size = new System.Drawing.Size(111, 20);
+            this.txt_direc.Size = new System.Drawing.Size(119, 20);
             this.txt_direc.TabIndex = 15;
             // 
             // txt_nom
             // 
-            this.txt_nom.Location = new System.Drawing.Point(59, 86);
-            this.txt_nom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_nom.Location = new System.Drawing.Point(11, 104);
+            this.txt_nom.Margin = new System.Windows.Forms.Padding(2);
             this.txt_nom.Name = "txt_nom";
             this.txt_nom.Size = new System.Drawing.Size(119, 20);
             this.txt_nom.TabIndex = 14;
@@ -130,7 +130,7 @@
             // comInfo
             // 
             this.comInfo.FormattingEnabled = true;
-            this.comInfo.Location = new System.Drawing.Point(12, 60);
+            this.comInfo.Location = new System.Drawing.Point(12, 25);
             this.comInfo.Name = "comInfo";
             this.comInfo.Size = new System.Drawing.Size(121, 21);
             this.comInfo.TabIndex = 21;
@@ -138,39 +138,42 @@
             // 
             // btn_modificar
             // 
-            this.btn_modificar.Location = new System.Drawing.Point(300, 135);
-            this.btn_modificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_modificar.Location = new System.Drawing.Point(71, 245);
+            this.btn_modificar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(56, 22);
+            this.btn_modificar.Size = new System.Drawing.Size(63, 26);
             this.btn_modificar.TabIndex = 22;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
             this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
-            // txt_busqueda
-            // 
-            this.txt_busqueda.Location = new System.Drawing.Point(70, 9);
-            this.txt_busqueda.Name = "txt_busqueda";
-            this.txt_busqueda.Size = new System.Drawing.Size(100, 20);
-            this.txt_busqueda.TabIndex = 23;
-            // 
             // btn_buscar
             // 
-            this.btn_buscar.Location = new System.Drawing.Point(188, 13);
+            this.btn_buscar.Location = new System.Drawing.Point(139, 26);
             this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
+            this.btn_buscar.Size = new System.Drawing.Size(54, 20);
             this.btn_buscar.TabIndex = 24;
             this.btn_buscar.Text = "Buscar";
             this.btn_buscar.UseVisualStyleBackColor = true;
             this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click_1);
             // 
+            // lbl_con
+            // 
+            this.lbl_con.AutoSize = true;
+            this.lbl_con.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_con.Location = new System.Drawing.Point(261, 28);
+            this.lbl_con.Name = "lbl_con";
+            this.lbl_con.Size = new System.Drawing.Size(14, 14);
+            this.lbl_con.TabIndex = 26;
+            this.lbl_con.Text = "#";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 227);
+            this.ClientSize = new System.Drawing.Size(302, 287);
+            this.Controls.Add(this.lbl_con);
             this.Controls.Add(this.btn_buscar);
-            this.Controls.Add(this.txt_busqueda);
             this.Controls.Add(this.btn_modificar);
             this.Controls.Add(this.comInfo);
             this.Controls.Add(this.btn_vista);
@@ -182,6 +185,7 @@
             this.Controls.Add(this.lbl_tele);
             this.Controls.Add(this.lbl_direc);
             this.Controls.Add(this.lbl_nom);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Cliente";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -202,8 +206,8 @@
         private System.Windows.Forms.Label lbl_nom;
         private System.Windows.Forms.ComboBox comInfo;
         private System.Windows.Forms.Button btn_modificar;
-        private System.Windows.Forms.TextBox txt_busqueda;
         private System.Windows.Forms.Button btn_buscar;
+        private System.Windows.Forms.Label lbl_con;
     }
 }
 
