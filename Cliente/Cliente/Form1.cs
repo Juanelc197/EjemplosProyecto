@@ -135,7 +135,7 @@ namespace Cliente
         {
             string cadena = "Select * from Cliente where Nombre ='" + comInfo.Text + "' ";
 
-            //txt_busqueda.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            
 
             OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
             OleDbCommand comando = new OleDbCommand(cadena, cnn);
@@ -151,7 +151,10 @@ namespace Cliente
                 txt_tel.Text = leer["Telefono"].ToString();
                 //txt_ID.Text = leer["Id"].ToString();
                 lbl_con.Text = leer["Id"].ToString();
-            
+
+                //comInfo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                //comInfo.AutoCompleteSource = AutoCompleteSource.ListItems; 
+
             }
             else
             {

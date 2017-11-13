@@ -129,6 +129,8 @@
             // 
             // comInfo
             // 
+            this.comInfo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comInfo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comInfo.FormattingEnabled = true;
             this.comInfo.Location = new System.Drawing.Point(12, 25);
             this.comInfo.Name = "comInfo";
