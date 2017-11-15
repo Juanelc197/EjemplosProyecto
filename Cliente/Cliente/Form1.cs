@@ -7,8 +7,8 @@ namespace Cliente
     public partial class Form1 : Form
     {
 
-        
-        
+
+
 
         public Form1()
         {
@@ -34,7 +34,7 @@ namespace Cliente
             MessageBox.Show("Conexion exitosa");
             //cnn.Close();
 
-            
+
         }
 
         private void btn_vista_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace Cliente
             frm.Show();
         }
 
-        
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -75,7 +75,7 @@ namespace Cliente
         private void comInfo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            
+
 
 
             /* try
@@ -135,7 +135,7 @@ namespace Cliente
         {
             string cadena = "Select * from Cliente where Nombre ='" + comInfo.Text + "' ";
 
-            
+
 
             OleDbConnection cnn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
             OleDbCommand comando = new OleDbCommand(cadena, cnn);
@@ -169,7 +169,18 @@ namespace Cliente
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
+            OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=EjemProyec.accdb");
+            OleDbCommand cmd = new OleDbCommand();
+            con.Open();
+
+            cmd.Connection = con;
+            String query = "Delete from Cliente where Id=" + lbl_con.Text;
+            cmd.CommandText = @query;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Eliminado :D");
+            con.Close();
 
         }
     }
+
 }
