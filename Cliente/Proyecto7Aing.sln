@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cliente", "Cliente\Cliente.csproj", "{A0E68B9B-C4FB-4022-A5ED-6E20C36BB1FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdeV_DELSEL", "PdeV_DELSEL\PdeV_DELSEL.csproj", "{A00C2331-43A1-43E2-8BDD-B2E47759C32F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A0E68B9B-C4FB-4022-A5ED-6E20C36BB1FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0E68B9B-C4FB-4022-A5ED-6E20C36BB1FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0E68B9B-C4FB-4022-A5ED-6E20C36BB1FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A00C2331-43A1-43E2-8BDD-B2E47759C32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A00C2331-43A1-43E2-8BDD-B2E47759C32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A00C2331-43A1-43E2-8BDD-B2E47759C32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A00C2331-43A1-43E2-8BDD-B2E47759C32F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
